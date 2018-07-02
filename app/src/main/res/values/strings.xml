@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Taweret Gym</string>
+    <string name="login">Login</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="signup">Sign Up</string>
+    <string name="no_account">Don\'t have an account yet? Sign up below</string>
+    <string name="already_account">Already have an account? Login below</string>
+    <string name="change_language">Change Language</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="weight">Current Weight</string>
+    <string name="target_weight">Target Weight</string>
+    <string name="preferred_loc">Preferred Workout Location</string>
+    <string name="workout_sessions">Workout Sessions</string>
+    <string name="add_workout">Add Workout Session</string>
+    <string name="view_all_workouts">View All Workout Sessions</string>
+    <string name="date">Date</string>
+    <string name="location">Location</string>
+    <string name="exercise_type">Type of Exercise</string>
+    <string name="number_of_sets">Number of Sets</string>
+    <string name="back_profile">Back to Profile Page</string>
+    <string name="profile_page">Profile Page</string>
+    <string name="view_instructors">View Instructors</string>
+    <string name="gyms_near_you">Look For Gyms Near You</string>
+    <string name="logout">LogOut</string>
+    <string name="or">OR</string>
+    <string name="home_page">Home</string>
+    <string name="update">Update</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="add">Add</string>
+    <string name="not_sure">Not sure?</string>
+    <string name="tooltip">Flexibility exercises stretch your muscles and can help your body stay limber e.g Yoga, Calf Stretch Exercises. \n \n
+    Balance exercises help prevent falls, a common problem in older adults. e.g Head-to-Toe walk, Tai Chi. \n \n
+    Strength exercises make your muscles stronger. e.g Lifting weights, Using a Resistance Band. \n \n
+    Endurance, or aerobic, activities increase your breathing and heart rate. e.g Brisk walking or jogging, Dancing + Aerobic Exercises offered.</string>
+    <string name="register_wait">You are being registered. Please wait...</string>
+    <string name="registration_success">Registration Successful</string>
+    <string name="some_error">Some error occurred. Please try again</string>
+    <string name="fill_all">Please fill in all the fields</string>
+    <string name="title_activity_find_gym">Map</string>
+    <string name="my_marker">Your Position</string>
+    <string name="nbi_marker">Marker in Nairobi</string>
+    <string name="no_internet">Unable to connect to the internet</string>
+</resources>

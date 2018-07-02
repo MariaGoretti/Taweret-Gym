@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mazoezi Taweret</string>
+    <string name="login">Ingia</string>
+    <string name="first_name">Jina la kwanza</string>
+    <string name="last_name">Jina la familia</string>
+    <string name="email_address">Barua pepe</string>
+    <string name="password">Passwadi</string>
+    <string name="signup">Tengeneza Akaunti</string>
+    <string name="no_account">Huna akaunti bado? Jiandikishe hapa chini</string>
+    <string name="already_account">Tayari una akaunti? Ingia hapa chini</string>
+    <string name="change_language">Badilisha Lugha</string>
+    <string name="male">Mwanaume</string>
+    <string name="female">Mwanamke</string>
+    <string name="weight">Uzito wa Sasa</string>
+    <string name="target_weight">Lengo la Uzito</string>
+    <string name="preferred_loc">Eneo la Mazoezi Linalokupendeza</string>
+    <string name="workout_sessions">Vikao vya Mazoezi</string>
+    <string name="add_workout">Ongeza Zoezi</string>
+    <string name="view_all_workouts">Tazama vikao vyote vya mazoezi</string>
+    <string name="date">Tarehe</string>
+    <string name="location">Eneo</string>
+    <string name="exercise_type">Aina la Zoezi</string>
+    <string name="number_of_sets">Idadi ya Seti</string>
+    <string name="back_profile">Rudi kwenye Ukurasa wa Profaili</string>
+    <string name="profile_page">Ukurasa wa Profaili</string>
+    <string name="view_instructors">Tazama Wafundishaji Mazoezi</string>
+    <string name="gyms_near_you">Tafuta Maeneo ya Mazoezi Karibu Na Wewe</string>
+    <string name="logout">Toka Nje</string>
+    <string name="or">AMA</string>
+    <string name="home_page">Kurasa Kuu</string>
+    <string name="update">Sasisha</string>
+    <string name="delete">Toa</string>
+    <string name="save">Badilisha</string>
+    <string name="add">Ongeza</string>
+    <string name="not_sure">Huna Uhakika?</string>
+    <string name="tooltip">Kubadilika mazoezi hunyoosha misuli yako na inaweza kusaidia mwili wako kukaa kikomo k.m. Yoga, Mazoezi ya Kunyoosha Ndama Zako. \n \n
+    Mazoezi ya usawa husaidia kuzuia kuanguka, tatizo la kawaida kwa watu wazima wakubwa. k.m. Kutembea Kichwa-kwa-Miguu, Tai Chi. \n \n
+    Mazoezi ya nguvu hufanya misuli yako imara. k.m. Kuinua uzito, Kutumia bendi ya upinzani. \n \n
+    Uvumilivu, au aerobiki, ni shughuli ambayo huongeza kiwango cha kupumua na moyo wako. k.m. Kutembea Haraka au Kutembea pole pole, Kucheza Ngoma + Mazoezi Aerobiki tunayofunza.</string>
+    <string name="register_wait">Unaandikishwa. Tafadhali subiri...</string>
+    <string name="registration_success">Usajili Ulifanikiwa</string>
+    <string name="some_error">Hitilafu fulani ilitokea. Tafadhali jaribu tena</string>
+    <string name="fill_all">Tafadhali jaza mapengo yote</string>
+    <string name="title_activity_find_gym">Ramani</string>
+    <string name="my_marker">Doa Lako</string>
+    <string name="nbi_marker">Doa la Nairobi</string>
+                                                        <string name="no_internet">Huna </string>
+</resources>
