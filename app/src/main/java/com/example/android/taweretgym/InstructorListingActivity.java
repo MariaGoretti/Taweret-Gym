@@ -28,7 +28,7 @@ public class InstructorListingActivity extends AppCompatActivity {
     private static final String KEY_INSTRUCTOR_GENDER = "gender";
     private static final String KEY_INSTRUCTOR_PHOTO = "photo";
     private static final String KEY_INSTRUCTOR_PHONE = "phone_number";
-    private static final String BASE_URL = "http://192.168.100.3/taweret/";
+    private static final String BASE_URL = "http://192.168.100.4/taweret/";
     private ArrayList<HashMap<String, String>> instructorList;
     private ListView instructorListView;
     private ProgressDialog pDialog;
@@ -37,7 +37,8 @@ public class InstructorListingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instructor_listing);
-        instructorListView = (ListView) findViewById(R.id.instructorList);
+
+        instructorListView = findViewById(R.id.instructorList);
         new FetchInstructorsAsyncTask().execute();
     }
     /**
@@ -49,7 +50,7 @@ public class InstructorListingActivity extends AppCompatActivity {
             super.onPreExecute();
             //Display progress bar
             pDialog = new ProgressDialog(InstructorListingActivity.this);
-            pDialog.setMessage("Loading instructors. Please wait...");
+            pDialog.setMessage(getString(R.string.ins_load));
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();

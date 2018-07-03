@@ -45,5 +45,14 @@
     <string name="title_activity_find_gym">Ramani</string>
     <string name="my_marker">Doa Lako</string>
     <string name="nbi_marker">Doa la Nairobi</string>
-                                                        <string name="no_internet">Huna </string>
+    <string name="no_internet">Haiwezekani kukuunganisha kwa mtandao</string>
+    <string name="ins_load">Inapakia wafundishaji. Tafadhali subiri...</string>
+    <string name="opening_time">Hufunguliwa: saa 6:00 asubuhi</string>
+    <string name="taweret_msa">Mazoezi Taweret Mombasa</string>
+    <string name="closing_time">Hufungwa: saa 6:00 jioni</string>
+    <string name="taweret_nak">Mazoezi Taweret Nakuru</string>
+    <string name="yoga">Yoga</string>
+    <string name="weights">Kuinua Mazito</string>
+    <string name="aerobics">Mazoezi ya Aerobiki</string>
+
 </resources>

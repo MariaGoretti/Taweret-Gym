@@ -1,20 +1,29 @@
 package com.example.android.taweretgym;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class FindGymActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -27,7 +36,7 @@ public class FindGymActivity extends FragmentActivity implements OnMapReadyCallb
     Location mLocation2;
 
     private final long MIN_TIME = 1000;
-    private final long MIN_DIST = 5;
+    private final long MIN_DIST = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +67,46 @@ public class FindGymActivity extends FragmentActivity implements OnMapReadyCallb
         //LatLng nairobi = new LatLng(-1.2833300, 36.8166700);
         //mMap.addMarker(new MarkerOptions().position(nairobi).title(getString(R.string.my_marker)));
         // mMap.moveCamera(CameraUpdateFactory.newLatLng(nairobi));
+
+        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+
+            @Override
+            public View getInfoWindow(Marker arg0) {
+                return null;
+            }
+
+            @Override
+            public View getInfoContents(Marker marker) {
+                Context mContext = getApplicationContext();
+
+                LinearLayout info = new LinearLayout(mContext);
+                info.setOrientation(LinearLayout.VERTICAL);
+
+                TextView title = new TextView(mContext);
+                title.setTextColor(Color.BLACK);
+                title.setGravity(Gravity.CENTER);
+                title.setTypeface(null, Typeface.BOLD);
+                title.setText(marker.getTitle());
+
+                TextView snippet = new TextView(mContext);
+                snippet.setTextColor(Color.GRAY);
+                snippet.setText(marker.getSnippet());
+
+                info.addView(title);
+                info.addView(snippet);
+
+                return info;
+            }
+        });
+
+        //Nairobi
         mLocation = new Location("network");
         mLocation.setLatitude(-1.2833300);
         mLocation.setLongitude(36.8166700);
 
         LatLng pname = new LatLng(mLocation.getLatitude(), mLocation.getLongitude());
-        mMap.addMarker(new MarkerOptions().position(pname).title(getString(R.string.nbi_marker)));
+        mMap.addMarker(new MarkerOptions().position(pname).title(getString(R.string.nbi_marker)).snippet(getString(R.string.opening_time) + "\n" + getString(R.string.closing_time)).icon(BitmapDescriptorFactory
+                .defaultMarker(BitmapDescriptorFactory.HUE_RED)));
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(pname));
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(pname)
@@ -73,37 +116,41 @@ public class FindGymActivity extends FragmentActivity implements OnMapReadyCallb
                 .build();
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
-        //location 1
+        //Mombasa
         mLocation1 = new Location("network");
         mLocation1.setLatitude(-4.036878);
         mLocation1.setLongitude(39.669571);
 
         LatLng pname1 = new LatLng(mLocation1.getLatitude(), mLocation1.getLongitude());
-        mMap.addMarker(new MarkerOptions().position(pname1).title(getString(R.string.nbi_marker)));
+
+        mMap.addMarker(new MarkerOptions().position(pname1).title(getString(R.string.taweret_msa)).snippet(getString(R.string.opening_time) + "\n" + getString(R.string.closing_time)).icon(BitmapDescriptorFactory
+                .defaultMarker(BitmapDescriptorFactory.HUE_RED)));
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(pname1));
         CameraPosition cameraPosition1 = new CameraPosition.Builder()
-                .target(pname)
+                .target(pname1)
                 .zoom(15)
                 .bearing(90)
                 .tilt(60)
                 .build();
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition1));
 
-        //location 2
+        //Nakuru
         mLocation2 = new Location("network");
         mLocation2.setLatitude(-0.303099);
         mLocation2.setLongitude(36.080025);
 
         LatLng pname2 = new LatLng(mLocation2.getLatitude(), mLocation2.getLongitude());
-        mMap.addMarker(new MarkerOptions().position(pname2).title(getString(R.string.nbi_marker)));
+        mMap.addMarker(new MarkerOptions().position(pname2).title(getString(R.string.taweret_nak)).snippet(getString(R.string.opening_time) + "\n" + getString(R.string.closing_time)).icon(BitmapDescriptorFactory
+                .defaultMarker(BitmapDescriptorFactory.HUE_RED)));
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(pname2));
         CameraPosition cameraPosition2 = new CameraPosition.Builder()
-                .target(pname)
+                .target(pname2)
                 .zoom(15)
                 .bearing(90)
                 .tilt(60)
                 .build();
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition2));
+
 
         locationListener = new LocationListener() {
             @Override

@@ -43,6 +43,15 @@
     <string name="fill_all">Please fill in all the fields</string>
     <string name="title_activity_find_gym">Map</string>
     <string name="my_marker">Your Position</string>
-    <string name="nbi_marker">Marker in Nairobi</string>
+    <string name="nbi_marker">Taweret Gym Nairobi</string>
     <string name="no_internet">Unable to connect to the internet</string>
+    <string name="ins_load">Loading instructors. Please wait...</string>
+    <string name="opening_time">Opening time: 6:00am</string>
+    <string name="taweret_msa">Taweret Gym Mombasa</string>
+    <string name="closing_time">Closing time: 6:00pm</string>
+    <string name="taweret_nak">Taweret Gym Nakuru</string>
+    <string name="yoga">Yoga</string>
+    <string name="weights">Lifting Weights</string>
+    <string name="aerobics">Aerobic Exercises</string>
+
 </resources>

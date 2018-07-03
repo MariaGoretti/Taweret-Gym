@@ -27,7 +27,7 @@ public class SessionListingActivity extends AppCompatActivity {
     private static final String KEY_SESSION_LOCATION = "location";
     private static final String KEY_SESSION_SETS = "sets";
     private static final String KEY_SESSION_DATE = "date";
-    private static final String BASE_URL = "http://192.168.100.3/taweret/";
+    private static final String BASE_URL = "http://192.168.100.4/taweret/";
     private ArrayList<HashMap<String, String>> sessionList;
     private ListView sessionListView;
     private ProgressDialog pDialog;
@@ -36,7 +36,7 @@ public class SessionListingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_session_listing);
-        sessionListView = (ListView) findViewById(R.id.sessionList);
+        sessionListView = findViewById(R.id.sessionList);
         new FetchSessionsAsyncTask().execute();
     }
     /**

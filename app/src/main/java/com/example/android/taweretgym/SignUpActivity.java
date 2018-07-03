@@ -26,7 +26,7 @@ public class SignUpActivity extends AppCompatActivity {
     private static final String KEY_LAST_NAME = "last_name";
     private static final String KEY_EMAIL_ADDRESS = "email_address";
     private static final String KEY_PASSWORD= "password";
-    private static final String BASE_URL = "http://192.168.100.3/taweret/";
+    private static final String BASE_URL = "http://192.168.43.184/taweret/";
     private static String STRING_EMPTY = "";
     private EditText firstNameEditText;
     private EditText lastNameEditText;
@@ -46,12 +46,12 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        firstNameEditText = (EditText) findViewById(R.id.txtFirstnameSignup);
-        lastNameEditText = (EditText) findViewById(R.id.txtLastnameSignup);
-        emailEditText = (EditText) findViewById(R.id.txtEmailSignup);
-        passwordEditText = (EditText) findViewById(R.id.txtPasswordSignup);
-        registerButtonSignup = (Button) findViewById(R.id.btnSignupSignup);
-        loginButtonSignup = (Button) findViewById(R.id.btnLoginSignup);
+        firstNameEditText = findViewById(R.id.txtFirstnameSignup);
+        lastNameEditText = findViewById(R.id.txtLastnameSignup);
+        emailEditText = findViewById(R.id.txtEmailSignup);
+        passwordEditText = findViewById(R.id.txtPasswordSignup);
+        registerButtonSignup = findViewById(R.id.btnSignupSignup);
+        loginButtonSignup = findViewById(R.id.btnLoginSignup);
 
         loginButtonSignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,9 +141,10 @@ public class SignUpActivity extends AppCompatActivity {
                         //send result code 20 to notify about user update
                         setResult(20, i);
                         //Finish ths activity and go to login activity
+
+                        Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                        startActivity(intent);
                         finish();
-                       //Intent intent = new Intent(SignUpActivity.this, UserOptionsActivity.class);
-                        //startActivity(intent);
 
                     } else {
                         Toast.makeText(SignUpActivity.this,

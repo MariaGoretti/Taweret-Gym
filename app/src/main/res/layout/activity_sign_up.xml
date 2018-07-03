@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_gravity="center_vertical"
     android:layout_margin="35dp"
+    android:id="@+id/activity_sign_up"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <com.example.android.taweretgym.FontView

@@ -5,6 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UserProfileActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
     
     <RelativeLayout
         android:id="@+id/relay1"
@@ -42,7 +50,7 @@
             android:layout_below="@+id/imgUser"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="3sp"
-            android:text="Smiley Ray"
+            android:hint="Smiley Ray"
             android:fontFamily="sans-serif-condensed"
             android:textSize="26sp"
             android:textColor="@color/grey"/>
@@ -54,7 +62,6 @@
             android:layout_below="@+id/nameUser"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="3sp"
-            android:text="Nairobi, Kenya"
             android:fontFamily="sans-serif-condensed"
             android:textSize="15sp"
             android:textColor="@color/black"/>
@@ -88,7 +95,7 @@
                     android:id="@+id/txtGender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="gender"
+                    android:hint="gender"
                     android:textColor="@color/white"
                     android:fontFamily="sans-serif-condensed"/>
 
@@ -115,7 +122,7 @@
                     android:id="@+id/txtAge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="age"
+                    android:hint="age"
                     android:textColor="@color/white"
                     android:fontFamily="sans-serif-condensed" />
 
@@ -262,7 +269,7 @@
                     <Button
                         android:layout_marginLeft="5dp"
                         android:layout_marginStart="5dp"
-                        android:id="@+id/addViewWorkouts"
+                        android:id="@+id/btnAddViewWorkouts"
                         android:drawableLeft="@drawable/ic_workout"
                         android:drawableStart="@drawable/ic_workout"
                         android:drawableTint="@color/blue"
