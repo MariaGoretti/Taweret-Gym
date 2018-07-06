@@ -17,7 +17,7 @@
     <string name="workout_sessions">Workout Sessions</string>
     <string name="add_workout">Add Workout Session</string>
     <string name="view_all_workouts">View All Workout Sessions</string>
-    <string name="date">Date</string>
+    <string name="date">Date e.g 16-06-2018</string>
     <string name="location">Location</string>
     <string name="exercise_type">Type of Exercise</string>
     <string name="number_of_sets">Number of Sets</string>
@@ -53,5 +53,16 @@
     <string name="yoga">Yoga</string>
     <string name="weights">Lifting Weights</string>
     <string name="aerobics">Aerobic Exercises</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="pass_match">Passwords do not match</string>
+    <string name="dialog_session">Loading sessions. Please wait...</string>
+    <string name="login_success">Login Successful</string>
+    <string name="login_dialog">Logging in. Please wait...</string>
+    <string name="choose_language">Choose language:</string>
+    <string name="nairobi">Nairobi</string>
+    <string name="nakuru">Nakuru</string>
+    <string name="mombasa">Mombasa</string>
+    <string name="add_sess_dialog">Adding session. Please Wait.....</string>
+    <string name="sess_added">Session Added</string>
 
 </resources>

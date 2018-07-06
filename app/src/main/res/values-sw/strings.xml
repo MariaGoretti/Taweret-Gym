@@ -18,7 +18,7 @@
     <string name="workout_sessions">Vikao vya Mazoezi</string>
     <string name="add_workout">Ongeza Zoezi</string>
     <string name="view_all_workouts">Tazama vikao vyote vya mazoezi</string>
-    <string name="date">Tarehe</string>
+    <string name="date">Tarehe m.f 16-06-2018</string>
     <string name="location">Eneo</string>
     <string name="exercise_type">Aina la Zoezi</string>
     <string name="number_of_sets">Idadi ya Seti</string>
@@ -54,5 +54,16 @@
     <string name="yoga">Yoga</string>
     <string name="weights">Kuinua Mazito</string>
     <string name="aerobics">Mazoezi ya Aerobiki</string>
+    <string name="confirm_password">Thibitisha Nenosiri</string>
+    <string name="pass_match">Nenosiri hazifanani</string>
+    <string name="dialog_session">Inapakia vikao. Tafadhali subiri...</string>
+    <string name="login_success">Kuingia Kumefaulu</string>
+    <string name="login_dialog">Unaingizwa. Tafadhali subiri...</string>
+    <string name="choose_language">Chagua Lugha:</string>
+    <string name="nairobi">Nairobi</string>
+    <string name="nakuru">Nakuru</string>
+    <string name="mombasa">Mombasa</string>
+    <string name="add_sess_dialog">Zoezi linaongezwa. Tafadhali subiri....</string>
+    <string name="sess_added">Zoezi Limeongezwa</string>
 
 </resources>

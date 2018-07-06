@@ -1,37 +1,37 @@
 package com.example.android.taweretgym;
 
 //import android.app.ActionBar;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.os.AsyncTask;
 import android.widget.Toast;
-import org.json.JSONException;
-import org.json.JSONObject;
-import java.util.HashMap;
-import java.util.Map;
 
 import com.example.android.taweretgym.helper.CheckNetworkStatus;
 import com.example.android.taweretgym.helper.HttpJsonParser;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 
-
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private static final String KEY_SUCCESS = "success";
     private static final String KEY_EMAIL_ADDRESS = "email_address";
     private static final String KEY_PASSWORD= "password";
-    private static final String BASE_URL = "http://192.168.100.3/taweret/";
+    private static final String BASE_URL = "https://taweret.herokuapp.com/";
     private static String STRING_EMPTY = "";
     private EditText txtEmailMain;
     private EditText txtPasswordMain;
@@ -72,8 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 if (CheckNetworkStatus.isNetworkAvailable(getApplicationContext())) {
                     verifyUser();
                 } else {
-                    Toast.makeText(MainActivity.this,
-                            "Unable to connect to the internet",
+                    Toast.makeText(MainActivity.this, R.string.no_internet,
                             Toast.LENGTH_LONG).show();
                 }
             }
@@ -92,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     private void showChangeLanguageDialog() {
         final String[] listItems = {"English (Default)", "Kiswahili"};
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
-        mBuilder.setTitle("Choose language: ");
+        mBuilder.setTitle(R.string.choose_language);
         mBuilder.setSingleChoiceItems(listItems, -1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -137,8 +136,7 @@ public class MainActivity extends AppCompatActivity {
             password = txtPasswordMain.getText().toString();
             new VerifyUserAsyncTask().execute();
         } else {
-            Toast.makeText(MainActivity.this,
-                    "Please fill in all the fields",
+            Toast.makeText(MainActivity.this, R.string.fill_all,
                     Toast.LENGTH_LONG).show();
         }
     }
@@ -152,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             super.onPreExecute();
             //Display proggress bar
             pDialog = new ProgressDialog(MainActivity.this);
-            pDialog.setMessage("Logging in. Please wait...");
+            pDialog.setMessage(getString(R.string.login_dialog));
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
@@ -167,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
             httpParams.put(KEY_EMAIL_ADDRESS, email);
             httpParams.put(KEY_PASSWORD, password);
             JSONObject jsonObject = httpJsonParser.makeHttpRequest(
-                    BASE_URL + "login_user.php", "POST", httpParams);
+                    BASE_URL + "login", "POST", httpParams);
             try {
                 success = jsonObject.getInt(KEY_SUCCESS);
             } catch (JSONException e) {
@@ -183,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
                     if (success == 1) {
                         //Display success message
                         Toast.makeText(MainActivity.this,
-                                "Login Successful", Toast.LENGTH_LONG).show();
+                                R.string.login_success, Toast.LENGTH_LONG).show();
                         Intent i = getIntent();
                         //send result code 20 to notify about user login
                         setResult(20, i);
@@ -192,9 +190,8 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     } else {
-                        Toast.makeText(MainActivity.this,
-                                "Some error occurred. Please try again",
-                                Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, R.string.some_error,
+                                Toast.LENGTH_SHORT).show();
                     }
                 }
             });

@@ -151,7 +151,6 @@ public class FindGymActivity extends FragmentActivity implements OnMapReadyCallb
                 .build();
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition2));
 
-
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {

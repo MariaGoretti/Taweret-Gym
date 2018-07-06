@@ -26,9 +26,9 @@ public class InstructorListingActivity extends AppCompatActivity {
     private static final String KEY_INSTRUCTOR_LAST_NAME = "last_name";
     private static final String KEY_INSTRUCTOR_EMAIL_ADDRESS = "email_address";
     private static final String KEY_INSTRUCTOR_GENDER = "gender";
-    private static final String KEY_INSTRUCTOR_PHOTO = "photo";
+    private static final String KEY_INSTRUCTOR_PHOTO = "profile_photo";
     private static final String KEY_INSTRUCTOR_PHONE = "phone_number";
-    private static final String BASE_URL = "http://192.168.100.4/taweret/";
+    private static final String BASE_URL = "https://taweret.herokuapp.com/";
     private ArrayList<HashMap<String, String>> instructorList;
     private ListView instructorListView;
     private ProgressDialog pDialog;
@@ -60,14 +60,15 @@ public class InstructorListingActivity extends AppCompatActivity {
         protected String doInBackground(String... params) {
             HttpJsonParser httpJsonParser = new HttpJsonParser();
             JSONObject jsonObject = httpJsonParser.makeHttpRequest(
-                    BASE_URL + "fetch_all_instructors.php", "GET", null);
+                    BASE_URL + "showinstructors", "GET", null);
             try {
                 int success = jsonObject.getInt(KEY_SUCCESS);
                 JSONArray instructors;
+
                 if (success == 1) {
                     instructorList = new ArrayList<>();
                     instructors = jsonObject.getJSONArray(KEY_DATA);
-                    //Iterate through the response and populate instructors list
+
                     for (int i = 0; i < instructors.length(); i++) {
                         JSONObject instructor = instructors.getJSONObject(i);
                         String instructorPhoto = instructor.getString(KEY_INSTRUCTOR_PHOTO);
@@ -124,9 +125,6 @@ public class InstructorListingActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == 20) {
-            // If the result code is 20 that means that
-            // the user has deleted/updated the instructor.
-            // So refresh the instructor listing
             Intent intent = getIntent();
             finish();
             startActivity(intent);

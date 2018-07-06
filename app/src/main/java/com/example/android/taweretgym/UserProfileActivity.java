@@ -13,22 +13,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.model.LatLng;
+
+import java.util.List;
+
 public class UserProfileActivity extends AppCompatActivity implements LocationListener {
     protected LocationManager locationManager;
-    protected LocationListener locationListener;
     protected Context context;
-    protected String latitude, longitude;
-    protected boolean gps_enabled, network_enabled;
     TextView txtLat;
-    String lat;
-    String provider;
-    Button addViewWorkouts;
+
     ImageView profileImage;
     TextView nameUser, locationUser, txtGender, txtAge, txtEmailAddressProfile, txtCurrentWeight, txtTargetWeight, prefWorkoutLoc;
     EditText txtEmailAddressProfileEdit, txtCurrentWeightEdit, txtTargetWeightEdit, prefWorkoutLocEdit;
@@ -48,12 +45,11 @@ public class UserProfileActivity extends AppCompatActivity implements LocationLi
         Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        addViewWorkouts = findViewById(R.id.btnAddViewWorkouts);
+
         profileImage = findViewById(R.id.profileImage);
-        nameUser = findViewById(R.id.nameUser);
         locationUser = findViewById(R.id.locationUser);
-        txtGender = findViewById(R.id.txtGender);
-        txtAge = findViewById(R.id.txtAge);
+        txtGender = findViewById(R.id.txtFirstNameProfile);
+        txtAge = findViewById(R.id.txtLastNameProfile);
         txtEmailAddressProfile = findViewById(R.id.txtEmailAddressProfile);
         txtCurrentWeight = findViewById(R.id.txtCurrentWeight);
         txtTargetWeight = findViewById(R.id.txtTargetWeight);
@@ -63,18 +59,11 @@ public class UserProfileActivity extends AppCompatActivity implements LocationLi
         txtTargetWeightEdit = findViewById(R.id.txtTargetWeightEdit);
         prefWorkoutLocEdit = findViewById(R.id.prefWorkoutLocEdit);
 
-        addViewWorkouts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(UserProfileActivity.this, AddWorkoutActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar actions click
+
         switch (item.getItemId()) {
             case R.id.menuLogout:
                 logoutUser();
@@ -90,6 +79,7 @@ public class UserProfileActivity extends AppCompatActivity implements LocationLi
         finish();
     }
 
+
     @Override
     public void onLocationChanged(Location location) {
         txtLat = findViewById(R.id.locationUser);
@@ -98,18 +88,36 @@ public class UserProfileActivity extends AppCompatActivity implements LocationLi
 
     @Override
     public void onProviderDisabled(String provider) {
-        Log.d("Latitude", "disable");
+        Location lastKnownLocation = null;
+        List<String> providers = null;
+        if (locationManager != null) providers = locationManager.getAllProviders();
+
+        if (providers != null) {
+            for (int i = 0; i < providers.size(); i++) {
+                if (locationManager != null)
+                    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                            != PackageManager.PERMISSION_GRANTED &&
+                            ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                                    != PackageManager.PERMISSION_GRANTED) {
+                        return;
+                    }
+                lastKnownLocation = locationManager.getLastKnownLocation(providers.get(i));
+                if (lastKnownLocation != null) {
+                    LatLng position = new LatLng(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude());
+                    break;
+                }
+            }
+        }
+        Log.d("Latitude", "disabled");
     }
 
     @Override
     public void onProviderEnabled(String provider) {
-        Log.d("Latitude", "enable");
+        Log.d("Latitude", "enabled");
     }
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
         Log.d("Latitude", "status");
-
-
     }
 }

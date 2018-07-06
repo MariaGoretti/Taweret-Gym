@@ -27,7 +27,7 @@ public class SessionListingActivity extends AppCompatActivity {
     private static final String KEY_SESSION_LOCATION = "location";
     private static final String KEY_SESSION_SETS = "sets";
     private static final String KEY_SESSION_DATE = "date";
-    private static final String BASE_URL = "http://192.168.100.4/taweret/";
+    private static final String BASE_URL = "https://taweret.herokuapp.com/";
     private ArrayList<HashMap<String, String>> sessionList;
     private ListView sessionListView;
     private ProgressDialog pDialog;
@@ -48,7 +48,7 @@ public class SessionListingActivity extends AppCompatActivity {
             super.onPreExecute();
             //Display progress bar
             pDialog = new ProgressDialog(SessionListingActivity.this);
-            pDialog.setMessage("Loading sessions. Please wait...");
+            pDialog.setMessage(getString(R.string.dialog_session));
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
@@ -58,7 +58,7 @@ public class SessionListingActivity extends AppCompatActivity {
         protected String doInBackground(String... params) {
             HttpJsonParser httpJsonParser = new HttpJsonParser();
             JSONObject jsonObject = httpJsonParser.makeHttpRequest(
-                    BASE_URL + "fetch_all_sessions.php", "GET", null);
+                    BASE_URL + "/show_sessions", "GET", null);
             try {
                 int success = jsonObject.getInt(KEY_SUCCESS);
                 JSONArray sessions;
